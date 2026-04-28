@@ -1,10 +1,21 @@
-# 🧠 Cómo se convierten prompts en tokens
+# 🧠 Token Efficiency Protocol & AI Model Usage Guide
 
-## Concepto básico
+## 🎯 Objetivo
 
-Los modelos no procesan texto directamente, sino **tokens**.
+Minimizar el costo total del uso de IA manteniendo calidad suficiente.
 
-Un token puede ser:
+```
+Costo total = tokens × iteraciones × precio del modelo
+```
+
+---
+
+# 🔬 Cómo funcionan los tokens
+
+## Qué es un token
+
+Un token es una unidad de texto que puede ser:
+
 - palabra
 - parte de palabra
 - símbolo
@@ -12,119 +23,286 @@ Un token puede ser:
 
 ---
 
-## Tokenización de input
+## Aproximaciones útiles
 
-Ejemplo:
+- Inglés → 1 token ≈ 4 caracteres  
+- Español → 1 token ≈ 3–3.5 caracteres  
 
-"Normalize tickers in a Google Sheet"
-
-No equivale a número de palabras → puede ser 10–12 tokens.
-
----
-
-## Reglas aproximadas
-
-- Inglés: 1 token ≈ 4 caracteres
-- Español: 1 token ≈ 3–3.5 caracteres
+👉 Español consume más tokens.
 
 ---
 
-## Qué cuenta como input tokens
+## Input tokens (lo que pagás)
 
-El input total incluye:
+Incluye:
 
-1. Prompt del usuario  
-2. System prompt (instrucciones ocultas)  
-3. Historial de conversación  
-4. Contexto adicional (archivos, imágenes, código)
+- prompt del usuario
+- system prompt (instrucciones invisibles)
+- historial de conversación
+- archivos / imágenes / código
 
----
-
-### Fórmula
-
-Input tokens = prompt + system + history + context
+```
+Input = prompt + system + history + contexto
+```
 
 ---
 
 ## Output tokens
 
-El modelo genera texto token por token:
+El modelo genera texto token por token.
 
-1. Lee input
-2. Predice siguiente token
-3. Repite hasta completar respuesta
+👉 Generalmente:
 
----
-
-## Costos
-
-Generalmente:
-
-- Input tokens → más baratos
-- Output tokens → más caros
-
-Ejemplo:
-
-- Input: $1 / 1M tokens  
-- Output: $5 / 1M tokens  
-
----
-
-## Implicación clave
-
-Reducir output tiene más impacto en costo que reducir input.
-
----
-
-## Factores que aumentan tokens
-
-### Input
-
-- prompts largos
-- contexto repetido
-- código completo
-- archivos sin filtrar
-
-### Output
-
-- explicaciones largas
-- ejemplos innecesarios
-- formato no controlado
-
----
-
-## Buenas prácticas
-
-- usar prompts compactos
-- estructurar input (objetivo + restricciones)
-- limitar output explícitamente
-- evitar repetir contexto
-- usar archivos/RAG para inputs grandes
+- input → más barato  
+- output → más caro  
 
 ---
 
 ## Insight clave
 
-Más texto ≠ mejor resultado
-
-Calidad depende de:
-- claridad
-- estructura
-- constraints
+```
+Reducir output > reducir input
+```
 
 ---
 
-## Prioridad de optimización
+# 💸 Qué realmente impacta el costo
 
-1. Reducir output tokens  
+Prioridad real:
+
+1. Reducir output innecesario  
 2. Reducir iteraciones  
 3. Reducir input redundante  
-4. Elegir modelo adecuado  
+4. Elegir modelo correcto  
 
 ---
 
-## Conclusión
+# 🧠 Skills (uso correcto)
 
-El costo real depende de:
+## Qué son
 
-tokens × iteraciones × precio por modelo
+Patrones reutilizables que evitan repetir instrucciones.
+
+---
+
+## Cuándo usar
+
+✔ tareas repetitivas  
+✔ automatización  
+✔ pipelines  
+✔ coding iterativo  
+
+---
+
+## Cuándo NO usar
+
+❌ tareas únicas  
+❌ análisis estratégico  
+❌ problemas altamente ambiguos  
+
+---
+
+## Beneficios
+
+- menos tokens por prompt  
+- menos errores  
+- menos iteraciones  
+- permite usar modelos más baratos  
+
+---
+
+## Riesgos
+
+- skills grandes → aumentan tokens  
+- sobreingeniería → más llamadas  
+- mala definición → peor output  
+
+---
+
+## Regla clave
+
+```
+Si repetís → usar skill
+Si es único → prompt directo
+```
+
+---
+
+# ⚙️ Buenas prácticas de prompts
+
+## Estructura óptima
+
+```
+Objetivo:
+Contexto mínimo:
+Restricciones:
+Output esperado:
+Criterios de aceptación:
+```
+
+---
+
+## Input eficiente
+
+- no repetir contexto  
+- no pegar documentos completos  
+- usar archivos cuando el contenido es largo  
+- usar RAG cuando sea necesario  
+- enviar solo fragmentos relevantes  
+
+---
+
+## Output eficiente
+
+- limitar longitud explícitamente  
+- usar JSON cuando sea posible  
+- evitar explicaciones largas  
+- evitar ejemplos innecesarios  
+
+---
+
+## Ejemplo
+
+### ❌ Ineficiente
+
+```
+Explicación larga + redundancia
+```
+
+### ✅ Eficiente
+
+```
+Objetivo: normalizar tickers
+Restricciones: no romper fórmulas
+Output: script final + validación
+```
+
+---
+
+# 🧠 Selección de modelo
+
+## Regla general
+
+```
+Modelo más barato que cumpla calidad mínima
+```
+
+---
+
+## Coding
+
+- Iteración → Composer / Cursor / Codex  
+- Arquitectura → modelos grandes  
+
+---
+
+## Automatización
+
+- modelos pequeños (mini/nano)
+
+---
+
+## Razonamiento complejo
+
+- modelos high-tier  
+
+---
+
+## Extracción masiva
+
+- modelos baratos + JSON  
+
+---
+
+# 🧠 Composer (Cursor) — cuándo usar
+
+## Usar
+
+✔ edición de código  
+✔ refactors  
+✔ debugging  
+✔ repos grandes  
+
+---
+
+## No usar
+
+❌ diseño conceptual  
+❌ explicación teórica  
+❌ tareas no técnicas  
+
+---
+
+## Insight clave
+
+Composer no reduce precio → reduce tokens.
+
+---
+
+# ⚡ Rules globales (para agentes)
+
+## Principios
+
+- ser conciso  
+- evitar redundancia  
+- priorizar output estructurado  
+- minimizar iteraciones  
+
+---
+
+## Modo coding
+
+- devolver código directo  
+- evitar explicación innecesaria  
+- trabajar en diffs  
+
+---
+
+## Modo agresivo (automatización)
+
+- output mínimo  
+- JSON/code-only  
+- cero narrativa  
+
+---
+
+# 🚀 Uso de archivos vs texto
+
+## Usar archivos cuando:
+
+- input > ~3–5k tokens  
+- documentos largos  
+- datasets  
+- logs  
+
+---
+
+## Usar texto cuando:
+
+- contexto corto  
+- instrucciones simples  
+
+---
+
+## Imágenes
+
+- útiles para UI / gráficos  
+- caras en tokens  
+
+---
+
+# 🧠 Insight final
+
+```
+El modelo no mejora por más texto.
+Mejora por mejor estructura.
+```
+
+---
+
+# 📌 Regla principal
+
+```
+Optimizar tokens no es escribir menos.
+Es comunicar mejor con menor costo total.
+```
