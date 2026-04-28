@@ -1,6 +1,8 @@
 # 🧠 Token Efficiency Protocol & AI Model Usage Guide
 
-## 🎯 Objetivo
+---
+
+# 🎯 Objetivo
 
 Minimizar el costo total del uso de IA manteniendo calidad suficiente.
 
@@ -179,63 +181,169 @@ Output: script final + validación
 
 ---
 
-# 🧠 Selección de modelo
+# 🧠 Selección de modelo (visión general)
 
-## Regla general
+## Regla principal
 
 ```
-Modelo más barato que cumpla calidad mínima
+Elegir el modelo más barato que cumpla con la calidad mínima requerida
 ```
 
 ---
 
-## Coding
+# 📊 Comparativa simplificada de modelos
 
-- Iteración → Composer / Cursor / Codex  
-- Arquitectura → modelos grandes  
-
----
-
-## Automatización
-
-- modelos pequeños (mini/nano)
+| Tipo de modelo | Costo | Calidad | Velocidad | Uso ideal |
+|------|--------|--------|--------|--------|
+| Nano / Lite | Muy bajo | Baja | Muy alta | Clasificación, parsing |
+| Mini / Flash | Bajo | Media | Alta | Automatización, código simple |
+| Standard | Medio | Alta | Media | Uso general |
+| High-tier | Alto | Muy alta | Baja | Razonamiento complejo |
 
 ---
 
-## Razonamiento complejo
+# 💰 Costos típicos (orden de magnitud)
 
-- modelos high-tier  
+| Modelo | Input ($/1M tokens) | Output ($/1M tokens) |
+|--------|-------------------|----------------------|
+| Nano | ~0.05 | ~0.4 |
+| Mini | ~0.25 | ~2 |
+| Standard | ~1–3 | ~10–15 |
+| High-tier | ~5 | ~25 |
+
+👉 Output es mucho más caro → optimizar salida es clave.
 
 ---
 
-## Extracción masiva
+# 🧠 Cuándo usar cada tipo de modelo
 
-- modelos baratos + JSON  
+## 🟢 Modelos baratos (nano / mini)
+
+Usar para:
+
+- clasificación
+- extracción
+- transformación de datos
+- regex / parsing
+- automatización masiva
+
+👉 mejor ROI
 
 ---
 
-# 🧠 Composer (Cursor) — cuándo usar
+## 🟡 Modelos intermedios
 
-## Usar
+Usar para:
 
-✔ edición de código  
+- código simple/medio
+- prompts bien definidos
+- tareas repetibles
+
+---
+
+## 🔴 Modelos caros (high-tier)
+
+Usar para:
+
+- decisiones complejas
+- arquitectura
+- finanzas
+- debugging difícil
+- prompts ambiguos
+
+👉 caros por token, pero pueden reducir iteraciones
+
+---
+
+# 💻 Coding: herramientas vs modelos
+
+## Herramientas tipo IDE (ej: Composer / Cursor)
+
+Ventajas:
+
+- trabajan sobre diffs
+- usan contexto del repo
+- reducen tokens repetidos
+- más eficientes en iteración
+
+---
+
+## Cuándo usar herramientas de coding
+
 ✔ refactors  
 ✔ debugging  
+✔ cambios incrementales  
 ✔ repos grandes  
 
 ---
 
-## No usar
+## Cuándo usar modelos “puros”
 
-❌ diseño conceptual  
-❌ explicación teórica  
-❌ tareas no técnicas  
+✔ diseño de arquitectura  
+✔ análisis conceptual  
+✔ planificación  
 
 ---
 
 ## Insight clave
 
-Composer no reduce precio → reduce tokens.
+```
+Herramientas coding reducen tokens más que modelos más baratos
+```
+
+---
+
+# ⚡ Estrategia óptima (muy importante)
+
+## Flujo ideal
+
+1. Modelo fuerte → define solución  
+2. Modelo barato / herramienta → implementa  
+3. Iteraciones mínimas  
+
+---
+
+## Anti-pattern
+
+```
+Usar modelo caro para todo
+```
+
+---
+
+# 🔁 Iteraciones vs costo
+
+Ejemplo:
+
+- Modelo barato × 5 iteraciones → más caro  
+- Modelo caro × 1 iteración → más barato  
+
+👉 siempre medir costo total
+
+---
+
+# 🚀 Uso de archivos vs texto
+
+## Usar archivos cuando:
+
+- input > 3k–5k tokens  
+- documentos largos  
+- datasets  
+- logs  
+
+---
+
+## Usar texto cuando:
+
+- contexto corto  
+- instrucciones simples  
+
+---
+
+## Imágenes
+
+- útiles para UI / gráficos  
+- caras en tokens  
 
 ---
 
@@ -258,36 +366,11 @@ Composer no reduce precio → reduce tokens.
 
 ---
 
-## Modo agresivo (automatización)
+## Modo agresivo
 
 - output mínimo  
 - JSON/code-only  
 - cero narrativa  
-
----
-
-# 🚀 Uso de archivos vs texto
-
-## Usar archivos cuando:
-
-- input > ~3–5k tokens  
-- documentos largos  
-- datasets  
-- logs  
-
----
-
-## Usar texto cuando:
-
-- contexto corto  
-- instrucciones simples  
-
----
-
-## Imágenes
-
-- útiles para UI / gráficos  
-- caras en tokens  
 
 ---
 
