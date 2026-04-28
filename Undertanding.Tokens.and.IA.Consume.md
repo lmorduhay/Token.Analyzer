@@ -130,6 +130,107 @@ Si es único → prompt directo
 
 ---
 
+# 🧠 Commands y eficiencia de tokens
+
+## Qué son
+
+Un command es una acción predefinida que encapsula:
+
+- prompt
+- reglas
+- contexto
+- comportamiento esperado
+
+Ejemplo:
+
+/normalize-tickers
+
+---
+
+## Impacto en tokens
+
+Los commands no reducen tokens internos del modelo.
+
+Reducen:
+
+- tokens de input
+- repetición
+- iteraciones
+
+---
+
+## Beneficios
+
+- evita repetir prompts largos
+- reduce ambigüedad
+- mejora consistencia
+- permite usar modelos más baratos
+- reduce errores
+
+---
+
+## Principal ahorro
+
+El mayor impacto viene de:
+
+reducción de iteraciones
+
+no solo de tokens por llamada
+
+---
+
+## Cuándo usar
+
+- tareas repetitivas
+- automatización
+- pipelines
+- coding iterativo
+- workflows estructurados
+
+---
+
+## Cuándo NO usar
+
+- tareas únicas
+- análisis complejos
+- problemas ambiguos
+
+---
+
+## Buenas prácticas
+
+- mantenerlos cortos
+- evitar ejemplos largos
+- ser específicos
+- definir claramente el output
+- no sobrecargar lógica
+
+---
+
+## Mala práctica
+
+commands grandes que:
+
+- contienen mucho texto
+- replican prompts completos
+- no reducen ambigüedad
+
+---
+
+## Regla clave
+
+Si lo escribís más de dos veces, debería ser un command
+
+---
+
+## Insight
+
+Commands optimizan el input.
+Skills optimizan el comportamiento.
+
+La combinación de ambos maximiza eficiencia.
+
+
 # ⚙️ Buenas prácticas de prompts
 
 ## Estructura óptima
