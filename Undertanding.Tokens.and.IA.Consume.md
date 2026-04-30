@@ -78,7 +78,88 @@ Prioridad real:
 4. Elegir modelo correcto  
 
 ---
+# 🧠 Rules vs Skills para eficiencia de tokens
 
+## Objetivo
+
+Determinar qué mecanismo usar para optimizar consumo de tokens y costo total.
+
+---
+
+## Definiciones
+
+### Rule
+
+Comportamiento global que se aplica automáticamente en todas las interacciones.
+
+---
+
+### Skill
+
+Instrucción específica para resolver un tipo de tarea particular.
+
+---
+
+## Diferencias clave
+
+| Aspecto | Rule | Skill |
+|--------|------|------|
+| Alcance | Global | Específico |
+| Activación | Automática | Manual |
+| Uso | Siempre | Condicional |
+| Impacto | Reducción constante | Optimización puntual |
+
+---
+
+## Cuándo usar Rules
+
+- reducción general de tokens
+- control de verbosidad
+- estructura de respuestas
+- consistencia global
+- agentes y automatización
+
+---
+
+## Cuándo usar Skills
+
+- tareas repetitivas
+- coding
+- debugging
+- extracción de datos
+- análisis estructurado
+
+---
+
+## Estrategia recomendada
+
+```
+Rule (base global)
+    ↓
+Skill (según tarea)
+    ↓
+Command (si se repite)
+```
+
+---
+
+## Insight clave
+
+Rule define comportamiento.
+
+Skill define ejecución.
+
+---
+
+## Conclusión
+
+Para optimización de tokens:
+
+Rule es obligatorio.
+
+Skill es complementario.
+
+---
 # 🧠 Skills (uso correcto)
 
 ## Qué son
@@ -230,7 +311,112 @@ Skills optimizan el comportamiento.
 
 La combinación de ambos maximiza eficiencia.
 
+---
+# 🗣️ Fórmulas discursivas y consumo de tokens
 
+## Qué son
+
+Expresiones de cortesía o relleno en prompts, por ejemplo:
+
+- "Buen día"
+- "Por favor"
+- "Gracias"
+- "Excelente trabajo"
+- "Podrías ayudarme con..."
+- "Te agradecería si..."
+
+---
+
+## Impacto en tokens
+
+Sí, consumen tokens.
+
+Cada palabra adicional:
+
+- aumenta el input
+- incrementa el costo
+- no mejora la calidad del resultado
+
+---
+
+## Ejemplo
+
+### ❌ Ineficiente
+
+```
+Buen día, por favor podrías ayudarme a normalizar tickers en este dataset, muchas gracias
+```
+
+### ✅ Eficiente
+
+```
+Normalizar tickers en dataset
+```
+
+---
+
+## Cuándo usar cortesía
+
+✔ interacción humana (chat, UX, customer-facing)  
+✔ contextos donde el tono importa  
+
+---
+
+## Cuándo evitarla
+
+❌ automatización  
+❌ pipelines  
+❌ scripting  
+❌ llamadas API  
+❌ uso intensivo / batch  
+
+---
+
+## Regla práctica
+
+```
+Si el modelo no necesita la frase para entender la tarea, eliminarla
+```
+
+---
+
+## Insight clave
+
+Las fórmulas discursivas:
+
+- mejoran percepción humana  
+- no mejoran performance del modelo  
+
+---
+
+## Impacto real
+
+En escenarios de alto volumen:
+
+- pequeñas frases → gran costo acumulado  
+
+Ejemplo:
+
+- +5 tokens × 1,000,000 requests = impacto significativo
+
+---
+
+## Recomendación
+
+- eliminar cortesía en prompts técnicos  
+- usar prompts directos y estructurados  
+- agregar tono solo en la capa de UI si es necesario  
+
+---
+
+## Regla final
+
+```
+Ser educado es gratis entre humanos.
+Con IA, cada palabra tiene costo.
+```
+
+---
 # ⚙️ Buenas prácticas de prompts
 
 ## Estructura óptima
