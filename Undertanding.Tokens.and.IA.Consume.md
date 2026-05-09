@@ -542,34 +542,123 @@ Usar para:
 
 ---
 
-# 💻 Coding: herramientas vs modelos
+# 💻 Composer (Cursor) y eficiencia de tokens
 
-## Herramientas tipo IDE (ej: Composer / Cursor)
+## Qué es Composer
 
-Ventajas:
+Composer es una capa de orquestación sobre modelos de IA que:
 
-- trabajan sobre diffs
-- usan contexto del repo
-- reducen tokens repetidos
-- más eficientes en iteración
+- analiza el repositorio
+- identifica partes relevantes
+- envía contexto mínimo al modelo
+- aplica cambios de forma incremental (diff)
 
 ---
 
-## Cuándo usar herramientas de coding
+## Cómo funciona
+
+1. Analiza estructura del código (archivos, funciones, imports)
+2. Selecciona solo el contexto relevante
+3. Envía fragmentos al modelo (no archivos completos)
+4. Genera cambios puntuales
+5. Aplica modificaciones incrementalmente
+
+---
+
+## Por qué reduce tokens
+
+### 1. Context slicing
+
+Envía solo partes relevantes del código.
+
+Ejemplo:
+
+- sin Composer → archivo completo (miles de tokens)
+- con Composer → función específica (decenas o cientos)
+
+---
+
+### 2. Diff en lugar de reescritura completa
+
+- modifica solo lo necesario
+- evita regenerar todo el archivo
+
+---
+
+### 3. Menos iteraciones
+
+- mantiene contexto del repo
+- no requiere reexplicar el problema
+- reduce cantidad de llamadas al modelo
+
+---
+
+### 4. Contexto implícito
+
+Usa información estructural del código:
+
+- referencias
+- dependencias
+- imports
+
+Esto no se envía como tokens.
+
+---
+
+### 5. Orquestación por pasos
+
+Divide problemas grandes en subtareas pequeñas:
+
+- cada llamada usa menos tokens
+- mayor eficiencia global
+
+---
+
+## Qué NO hace
+
+Composer no:
+
+- reduce el precio por token
+- mejora el modelo subyacente
+- elimina costo si el uso es ineficiente
+
+---
+
+## Cuándo usar Composer
 
 ✔ refactors  
 ✔ debugging  
 ✔ cambios incrementales  
 ✔ repos grandes  
+✔ desarrollo iterativo  
 
 ---
 
-## Cuándo usar modelos “puros”
+## Cuándo NO usar
 
-✔ diseño de arquitectura  
-✔ análisis conceptual  
-✔ planificación  
+❌ diseño conceptual  
+❌ análisis teórico  
+❌ prompts únicos  
+❌ tareas fuera de código  
 
+---
+
+## Insight clave
+
+Composer reduce tokens porque reduce el contexto enviado,
+no porque reduzca el costo del modelo.
+
+---
+
+## Regla práctica
+
+Si el problema es código y se puede resolver en partes:
+
+→ usar Composer
+
+Si el problema es conceptual:
+
+→ usar modelo directo
 ---
 
 ## Insight clave
